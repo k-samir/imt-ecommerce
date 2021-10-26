@@ -1,0 +1,31 @@
+<app-navbar-component></app-navbar-component>
+
+<div class="container">
+  <header class="jumbotron hero-spacer">
+    <h1>Welcome to {{ title }}</h1>
+    <p>Your basket amounts to {{getTotal()}} €</p>
+  </header>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>Last products</h2>
+    </div>
+  </div>
+  <div class="row text-center">
+    <ng-container
+      *ngFor="let product of products"
+      class="col-md-3 col-sm-6 product-item"
+    >
+    <div *ngIf="!product.isInStock()"  class="col-md-3 col-sm-6 product-item">
+      <app-product-component  (addToBasket)=addProductToBasket($event) [data]="product"></app-product-component>  
+    </div>
+
+    </ng-container>
+  </div>
+
+  <hr />
+</div>
+
+<app-footer-component></app-footer-component>

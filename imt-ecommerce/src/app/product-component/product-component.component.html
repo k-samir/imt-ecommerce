@@ -1,0 +1,17 @@
+
+
+<div [ngClass]="{'last': data.isLast()}" class="thumbnail"  >
+  <img [src]="data.photo" alt="" />
+  <div class="caption">
+    <h3>{{ data.title }} - {{ data.price }} €</h3>
+    <p>{{ data.description }}</p>
+    <p>
+      <button
+        (click)="addProductToBasket(data)"
+        class="btn btn-primary"
+      >
+        Add to basket
+      </button>
+    </p>
+  </div>
+</div>
